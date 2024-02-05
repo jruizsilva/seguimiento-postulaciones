@@ -2,4 +2,26 @@
   <mat-toolbar style="margin: 16px 0">
     <span>Crear Postulación</span>
   </mat-toolbar>
+  <mat-card style="padding: 16px">
+    <form class="form">
+      <mat-form-field color="accent" class="full-width">
+        <mat-label>Puesto</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field color="accent" class="full-width">
+        <mat-label>Empresa</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field color="accent" class="full-width">
+        <mat-label>Enlace de postulación</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <div class="button-container">
+        <button mat-button color="accent">Volver</button>
+        <button type="submit" mat-raised-button color="accent">
+          Crear postulación
+        </button>
+      </div>
+    </form>
+  </mat-card>
 </div>
