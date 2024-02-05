@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIcon } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-crear-postulacion',
@@ -16,8 +17,15 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatIcon,
     MatButtonModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './crear-postulacion.component.html',
   styleUrl: './crear-postulacion.component.scss',
 })
-export class CrearPostulacionComponent {}
+export class CrearPostulacionComponent {
+  form: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group({});
+  }
+}
