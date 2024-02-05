@@ -4,7 +4,9 @@ import {
   Component,
   ViewChild,
 } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import {
   MatPaginator,
@@ -13,6 +15,8 @@ import {
 } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { postulacionesMock } from '../../../mocks/postulacionesMock';
 
 /**
@@ -29,26 +33,30 @@ import { postulacionesMock } from '../../../mocks/postulacionesMock';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTooltipModule,
   ],
 })
 export class TablePostulacionesComponent implements AfterViewInit {
-  displayedColumns: string[] = ['Fecha', 'Empresa', 'Link', 'Estado'];
+  displayedColumns: string[] = [
+    'fecha',
+    'empresa',
+    'link',
+    'estado',
+    'acciones',
+  ];
   dataSource: MatTableDataSource<Postulacion>;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
     private _intl: MatPaginatorIntl,
     private _changeDetectorRef: ChangeDetectorRef
   ) {
-    // Create 100 users
-    const postulaciones = postulacionesMock;
-
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(postulaciones);
-    this.sort = new MatSort();
-    this.paginator = new MatPaginator(_intl, _changeDetectorRef);
+    this.dataSource = new MatTableDataSource(postulacionesMock);
   }
 
   ngAfterViewInit() {
