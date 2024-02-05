@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { TablePostulacionesComponent } from './components/table-postulaciones/table-postulaciones.component';
+import { TablePostulacionesComponent } from './pages/table-postulaciones/table-postulaciones.component';
 
 @Component({
   selector: 'app-root',

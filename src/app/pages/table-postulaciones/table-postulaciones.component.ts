@@ -18,6 +18,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { postulacionesMock } from '../../../mocks/postulacionesMock';
+import { RouterLink } from '@angular/router';
 
 /**
  * @title Data table with sorting, pagination, and filtering.
@@ -37,6 +38,7 @@ import { postulacionesMock } from '../../../mocks/postulacionesMock';
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
+    RouterLink,
   ],
 })
 export class TablePostulacionesComponent implements AfterViewInit {
