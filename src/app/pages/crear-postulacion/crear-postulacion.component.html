@@ -3,22 +3,27 @@
     <span>Crear Postulación</span>
   </mat-toolbar>
   <mat-card style="padding: 16px">
-    <form class="form" [formGroup]="form">
+    <form class="form" [formGroup]="form" (ngSubmit)="addPostulacion()">
       <mat-form-field color="accent" class="full-width">
         <mat-label>Puesto</mat-label>
-        <input matInput />
+        <input matInput autocomplete="off" formControlName="puesto" />
       </mat-form-field>
       <mat-form-field color="accent" class="full-width">
         <mat-label>Empresa</mat-label>
-        <input matInput />
+        <input matInput autocomplete="off" formControlName="empresa" />
       </mat-form-field>
       <mat-form-field color="accent" class="full-width">
         <mat-label>Enlace de postulación</mat-label>
-        <input matInput />
+        <input matInput autocomplete="off" formControlName="enlace" />
       </mat-form-field>
       <div class="button-container">
         <button mat-button color="accent">Volver</button>
-        <button type="submit" mat-raised-button color="accent">
+        <button
+          type="submit"
+          [disabled]="form.invalid"
+          mat-raised-button
+          color="accent"
+        >
           Crear postulación
         </button>
       </div>

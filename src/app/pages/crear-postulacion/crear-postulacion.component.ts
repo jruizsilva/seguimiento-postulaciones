@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { Component, inject } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { MatIcon } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { PostulacionesService } from '../../services/postulaciones.service';
 
 @Component({
   selector: 'app-crear-postulacion',
@@ -24,8 +30,24 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class CrearPostulacionComponent {
   form: FormGroup;
+  _postulacionesService = inject(PostulacionesService);
 
   constructor(private formBuilder: FormBuilder) {
-    this.form = this.formBuilder.group({});
+    this.form = this.formBuilder.group({
+      puesto: ['', Validators.required],
+      empresa: ['', Validators.required],
+      plataforma: ['', Validators.required],
+      enlace: [''],
+    });
+  }
+
+  addPostulacion() {
+    const nuevaPostulacion: Postulacion = {
+      ...this.form.value,
+      fecha: new Date().toLocaleDateString(),
+      estado: 'EN_PROCESO',
+    };
+    console.log(nuevaPostulacion);
+    this._postulacionesService.addPostulacion(nuevaPostulacion);
   }
 }

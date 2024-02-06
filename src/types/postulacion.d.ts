@@ -1,6 +1,26 @@
 interface Postulacion {
-  fecha: string; // yyyy-MM-dd
+  id: number;
+  puesto: string;
+  fecha: string;
   empresa: string;
-  link: string;
-  estado: 'en proceso' | 'finalizado';
+  enlace?: string;
+  plataforma: string;
+  estado: estado;
 }
+
+interface CreatePostulacionRequest {
+  puesto: string;
+  empresa: string;
+  enlace?: string;
+  plataforma: string;
+}
+
+interface UpdatePostulacionRequest {
+  id: number;
+  puesto?: string;
+  empresa?: string;
+  enlace?: string;
+  plataforma?: string;
+}
+
+type estado = 'EN_PROCESO' | 'FINALIZADO';

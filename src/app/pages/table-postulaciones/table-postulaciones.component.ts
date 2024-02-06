@@ -3,6 +3,7 @@ import {
   ChangeDetectorRef,
   Component,
   ViewChild,
+  inject,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -17,8 +18,8 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { postulacionesMock } from '../../../mocks/postulacionesMock';
 import { RouterLink } from '@angular/router';
+import { PostulacionesService } from '../../services/postulaciones.service';
 
 /**
  * @title Data table with sorting, pagination, and filtering.
@@ -43,22 +44,27 @@ import { RouterLink } from '@angular/router';
 })
 export class TablePostulacionesComponent implements AfterViewInit {
   displayedColumns: string[] = [
-    'fecha',
+    'puesto',
     'empresa',
-    'link',
+    'plataforma',
+    'enlace',
+    'fecha',
     'estado',
     'acciones',
   ];
   dataSource: MatTableDataSource<Postulacion>;
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  _postulacionesService = inject(PostulacionesService);
 
   constructor(
     private _intl: MatPaginatorIntl,
     private _changeDetectorRef: ChangeDetectorRef
   ) {
-    this.dataSource = new MatTableDataSource(postulacionesMock);
+    this.dataSource = new MatTableDataSource(
+      this._postulacionesService.getPostulaciones()
+    );
   }
 
   ngAfterViewInit() {
