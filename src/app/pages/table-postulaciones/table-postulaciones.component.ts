@@ -1,3 +1,4 @@
+import { DatePipe, TitleCasePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import {
   ChangeDetectorRef,
@@ -19,7 +20,7 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { NavigationExtras, Router, RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { PostulacionesService } from '../../services/postulaciones.service';
 
 /**
@@ -42,6 +43,8 @@ import { PostulacionesService } from '../../services/postulaciones.service';
     MatTooltipModule,
     RouterLink,
     HttpClientModule,
+    DatePipe,
+    TitleCasePipe,
   ],
   providers: [PostulacionesService],
 })

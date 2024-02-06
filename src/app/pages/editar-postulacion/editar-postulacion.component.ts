@@ -60,8 +60,7 @@ export class EditarPostulacionComponent implements OnInit {
     };
     this._postulacionesService
       .updatePostulacion(postulacionToUpdate)
-      .subscribe((data) => {
-        console.log(data);
+      .subscribe(() => {
         this.form.reset();
         this._router.navigate(['/postulaciones']);
       });

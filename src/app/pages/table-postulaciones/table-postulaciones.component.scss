@@ -1,9 +1,9 @@
-table {
-  width: 100%;
+.table-container {
+  max-width: 100%;
+  overflow: auto;
 }
-
-th {
-  width: 14.28%;
+table {
+  width: 1024px;
 }
 .mat-mdc-form-field {
   font-size: 14px;
