@@ -2,9 +2,15 @@
   <mat-toolbar style="margin: 16px 0">
     <span>Postulaciones</span>
     <div class="spacer"></div>
-    <button mat-raised-button color="accent" routerLink="/crear-postulacion">
+    <button
+      mat-raised-button
+      color="accent"
+      routerLink="/crear-postulacion"
+      style="margin-right: 16px"
+    >
       Agregar postulación
     </button>
+    <app-menu-reportes />
   </mat-toolbar>
   <mat-form-field color="accent">
     <mat-label>Filter</mat-label>

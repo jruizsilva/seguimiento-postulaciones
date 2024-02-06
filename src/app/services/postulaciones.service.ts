@@ -36,4 +36,16 @@ export class PostulacionesService {
   deletePostulacionById(postulacionId: string): Observable<void> {
     return this._httpClient.delete<void>(`${this.baseURL}/${postulacionId}`);
   }
+
+  getPdf(): Observable<Blob> {
+    return this._httpClient.get(`${this.baseURL}/export/pdf2`, {
+      responseType: 'blob',
+    });
+  }
+
+  getExcel(): Observable<Blob> {
+    return this._httpClient.get(`${this.baseURL}/export/excel`, {
+      responseType: 'blob',
+    });
+  }
 }

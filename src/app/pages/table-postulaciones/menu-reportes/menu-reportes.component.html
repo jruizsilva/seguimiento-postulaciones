@@ -1,0 +1,17 @@
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="menu"
+  aria-label="Example icon-button with a menu"
+>
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu" xPosition="before">
+  <button mat-menu-item (click)="descargarPdf()">
+    <mat-icon color="warn">picture_as_pdf</mat-icon>
+    <span>Descargar PDF</span>
+  </button>
+  <button mat-menu-item (click)="descargarExcel()">
+    <mat-icon color="accent">description</mat-icon>
+    <span>Descargar Excel</span>
+  </button>
+</mat-menu>

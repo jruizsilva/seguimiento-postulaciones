@@ -22,6 +22,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { Router, RouterLink } from '@angular/router';
 import { PostulacionesService } from '../../services/postulaciones.service';
+import { MenuReportesComponent } from './menu-reportes/menu-reportes.component';
 
 /**
  * @title Data table with sorting, pagination, and filtering.
@@ -45,6 +46,7 @@ import { PostulacionesService } from '../../services/postulaciones.service';
     HttpClientModule,
     DatePipe,
     TitleCasePipe,
+    MenuReportesComponent,
   ],
   providers: [PostulacionesService],
 })
