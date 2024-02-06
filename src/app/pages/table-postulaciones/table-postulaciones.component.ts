@@ -1,6 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
 import {
-  AfterViewInit,
   ChangeDetectorRef,
   Component,
   OnInit,
@@ -20,7 +19,7 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { RouterLink } from '@angular/router';
+import { NavigationExtras, Router, RouterLink } from '@angular/router';
 import { PostulacionesService } from '../../services/postulaciones.service';
 
 /**
@@ -46,7 +45,7 @@ import { PostulacionesService } from '../../services/postulaciones.service';
   ],
   providers: [PostulacionesService],
 })
-export class TablePostulacionesComponent implements OnInit, AfterViewInit {
+export class TablePostulacionesComponent implements OnInit {
   displayedColumns: string[] = [
     'puesto',
     'empresa',
@@ -63,16 +62,14 @@ export class TablePostulacionesComponent implements OnInit, AfterViewInit {
   _postulacionesService = inject(PostulacionesService);
   _intl = inject(MatPaginatorIntl);
   _changeDetectorRef = inject(ChangeDetectorRef);
+  _router = inject(Router);
 
   ngOnInit(): void {
     this._postulacionesService.getAllPostulaciones().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
-  }
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {
@@ -82,5 +79,25 @@ export class TablePostulacionesComponent implements OnInit, AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  deletePostulacion(id: number) {
+    if (confirm('¿Esta seguro que desea eliminar la postulación?')) {
+      this._postulacionesService
+        .deletePostulacionById(id.toString())
+        .subscribe(() => {
+          this.dataSource.data = this.dataSource.data.filter(
+            (postulacion) => postulacion.id !== id
+          );
+        });
+    }
+  }
+
+  editPostulacion(postulacion: Postulacion) {
+    this._router.navigate(['/editar-postulacion', postulacion.id], {
+      state: {
+        postulacion,
+      },
+    });
   }
 }

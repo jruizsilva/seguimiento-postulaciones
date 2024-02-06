@@ -1,9 +1,9 @@
 <div class="container">
   <mat-toolbar style="margin: 16px 0">
-    <span>Crear Postulación</span>
+    <span>Editar Postulación</span>
   </mat-toolbar>
-  <mat-card style="padding: 16px">
-    <form class="form" [formGroup]="form" (ngSubmit)="addPostulacion()">
+  <mat-card style="padding: 16px; margin-bottom: 36px">
+    <form class="form" [formGroup]="form" (ngSubmit)="updatePostulacion()">
       <mat-form-field color="accent" class="full-width">
         <mat-label>Puesto</mat-label>
         <input matInput autocomplete="off" formControlName="puesto" />
@@ -17,6 +17,13 @@
         <input matInput autocomplete="off" formControlName="plataforma" />
       </mat-form-field>
       <mat-form-field color="accent" class="full-width">
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="estado">
+          <mat-option value="EN_PROCESO">EN_PROCESO</mat-option>
+          <mat-option value="FINALIZADO">FINALIZADO</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field color="accent" class="full-width">
         <mat-label>Enlace de postulación</mat-label>
         <input matInput autocomplete="off" formControlName="enlace" />
       </mat-form-field>
@@ -26,11 +33,11 @@
         </button>
         <button
           type="submit"
-          [disabled]="form.invalid"
+          [disabled]="form.invalid || !form.dirty"
           mat-raised-button
           color="accent"
         >
-          Crear postulación
+          Confirmar edición
         </button>
       </div>
     </form>

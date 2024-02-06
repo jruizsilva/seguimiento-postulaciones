@@ -58,6 +58,7 @@
             color="accent"
             aria-label="Example icon button with a heart icon"
             matTooltip="Editar postulación"
+            (click)="editPostulacion(row)"
           >
             <mat-icon>edit</mat-icon>
           </button>
@@ -66,6 +67,7 @@
             color="warn"
             aria-label="Example icon button with a heart icon"
             matTooltip="Eliminar postulación"
+            (click)="deletePostulacion(row.id)"
           >
             <mat-icon>delete</mat-icon>
           </button>

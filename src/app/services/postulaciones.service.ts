@@ -25,7 +25,7 @@ export class PostulacionesService {
       createPostulacionRequest
     );
   }
-  updatePostulaction(
+  updatePostulacion(
     updatePostulacionRequest: UpdatePostulacionRequest
   ): Observable<Postulacion> {
     return this._httpClient.patch<Postulacion>(
@@ -33,7 +33,7 @@ export class PostulacionesService {
       updatePostulacionRequest
     );
   }
-  deletePostulacionById(postulacionId: string) {
-    this._httpClient.delete(`${this.baseURL}/${postulacionId}`);
+  deletePostulacionById(postulacionId: string): Observable<void> {
+    return this._httpClient.delete<void>(`${this.baseURL}/${postulacionId}`);
   }
 }
