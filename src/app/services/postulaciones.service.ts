@@ -1,21 +1,15 @@
-import { Injectable, inject } from '@angular/core';
-import { postulacionesData } from '../../assets/data/postulacionesData';
 import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostulacionesService {
-  postulaciones: Postulacion[];
   baseURL = 'http://localhost:8080/postulaciones';
   _httpClient = inject(HttpClient);
 
-  constructor() {
-    this.postulaciones = postulacionesData;
-  }
-
-  getPostulaciones(): Observable<Postulacion[]> {
+  getAllPostulaciones(): Observable<Postulacion[]> {
     return this._httpClient.get<Postulacion[]>(this.baseURL);
   }
   getPostulacionById(postulacionId: string): Observable<Postulacion> {

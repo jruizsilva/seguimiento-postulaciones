@@ -1,5 +1,6 @@
 export const postulacionesData: Postulacion[] = [
   {
+    id: 1,
     puesto: 'Java developer',
     fecha: '2022-02-01',
     empresa: 'Empresa A',
@@ -8,6 +9,7 @@ export const postulacionesData: Postulacion[] = [
     plataforma: 'LinkedIn',
   },
   {
+    id: 2,
     puesto: 'Java developer',
     fecha: '2022-02-03',
     empresa: 'Empresa B',
@@ -16,6 +18,7 @@ export const postulacionesData: Postulacion[] = [
     plataforma: 'LinkedIn',
   },
   {
+    id: 3,
     puesto: 'Java developer',
     fecha: '2022-02-05',
     empresa: 'Empresa C',
@@ -24,6 +27,7 @@ export const postulacionesData: Postulacion[] = [
     plataforma: 'LinkedIn',
   },
   {
+    id: 4,
     puesto: 'Java developer',
     fecha: '2022-02-20',
     empresa: 'Empresa M',
@@ -32,6 +36,7 @@ export const postulacionesData: Postulacion[] = [
     plataforma: 'LinkedIn',
   },
   {
+    id: 5,
     puesto: 'Java developer',
     fecha: '2022-02-01',
     empresa: 'Empresa A',
@@ -40,6 +45,7 @@ export const postulacionesData: Postulacion[] = [
     plataforma: 'LinkedIn',
   },
   {
+    id: 6,
     puesto: 'Java developer',
     fecha: '2022-02-03',
     empresa: 'Empresa B',
@@ -48,6 +54,7 @@ export const postulacionesData: Postulacion[] = [
     plataforma: 'LinkedIn',
   },
   {
+    id: 7,
     puesto: 'Java developer',
     fecha: '2022-02-05',
     empresa: 'Empresa C',
@@ -56,6 +63,7 @@ export const postulacionesData: Postulacion[] = [
     plataforma: 'LinkedIn',
   },
   {
+    id: 8,
     puesto: 'Java developer',
     fecha: '2022-02-20',
     empresa: 'Empresa M',
@@ -64,6 +72,7 @@ export const postulacionesData: Postulacion[] = [
     plataforma: 'LinkedIn',
   },
   {
+    id: 9,
     puesto: 'Java developer',
     fecha: '2022-02-01',
     empresa: 'Empresa A',
@@ -72,6 +81,7 @@ export const postulacionesData: Postulacion[] = [
     plataforma: 'LinkedIn',
   },
   {
+    id: 10,
     puesto: 'Java developer',
     fecha: '2022-02-03',
     empresa: 'Empresa B',
@@ -80,6 +90,7 @@ export const postulacionesData: Postulacion[] = [
     plataforma: 'LinkedIn',
   },
   {
+    id: 11,
     puesto: 'Java developer',
     fecha: '2022-02-05',
     empresa: 'Empresa C',
@@ -88,6 +99,7 @@ export const postulacionesData: Postulacion[] = [
     plataforma: 'LinkedIn',
   },
   {
+    id: 12,
     puesto: 'Java developer',
     fecha: '2022-02-20',
     empresa: 'Empresa M',
@@ -96,6 +108,7 @@ export const postulacionesData: Postulacion[] = [
     plataforma: 'LinkedIn',
   },
   {
+    id: 13,
     puesto: 'Java developer',
     fecha: '2022-02-01',
     empresa: 'Empresa A',
@@ -104,6 +117,7 @@ export const postulacionesData: Postulacion[] = [
     plataforma: 'LinkedIn',
   },
   {
+    id: 14,
     puesto: 'Java developer',
     fecha: '2022-02-03',
     empresa: 'Empresa B',
@@ -112,6 +126,7 @@ export const postulacionesData: Postulacion[] = [
     plataforma: 'LinkedIn',
   },
   {
+    id: 15,
     puesto: 'Java developer',
     fecha: '2022-02-05',
     empresa: 'Empresa C',
@@ -120,6 +135,7 @@ export const postulacionesData: Postulacion[] = [
     plataforma: 'LinkedIn',
   },
   {
+    id: 16,
     puesto: 'Java developer',
     fecha: '2022-02-20',
     empresa: 'Empresa M',

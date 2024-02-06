@@ -1,7 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import {
   AfterViewInit,
   ChangeDetectorRef,
   Component,
+  OnInit,
   ViewChild,
   inject,
 } from '@angular/core';
@@ -40,9 +42,11 @@ import { PostulacionesService } from '../../services/postulaciones.service';
     MatIconModule,
     MatTooltipModule,
     RouterLink,
+    HttpClientModule,
   ],
+  providers: [PostulacionesService],
 })
-export class TablePostulacionesComponent implements AfterViewInit {
+export class TablePostulacionesComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = [
     'puesto',
     'empresa',
@@ -52,19 +56,18 @@ export class TablePostulacionesComponent implements AfterViewInit {
     'estado',
     'acciones',
   ];
-  dataSource: MatTableDataSource<Postulacion>;
+  dataSource!: MatTableDataSource<Postulacion>;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   _postulacionesService = inject(PostulacionesService);
+  _intl = inject(MatPaginatorIntl);
+  _changeDetectorRef = inject(ChangeDetectorRef);
 
-  constructor(
-    private _intl: MatPaginatorIntl,
-    private _changeDetectorRef: ChangeDetectorRef
-  ) {
-    this.dataSource = new MatTableDataSource(
-      this._postulacionesService.getPostulaciones()
-    );
+  ngOnInit(): void {
+    this._postulacionesService.getAllPostulaciones().subscribe((data) => {
+      this.dataSource = new MatTableDataSource(data);
+    });
   }
 
   ngAfterViewInit() {
