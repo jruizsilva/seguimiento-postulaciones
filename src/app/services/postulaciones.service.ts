@@ -38,7 +38,7 @@ export class PostulacionesService {
   }
 
   getPdf(): Observable<Blob> {
-    return this._httpClient.get(`${this.baseURL}/export/pdf2`, {
+    return this._httpClient.get(`${this.baseURL}/export/pdf`, {
       responseType: 'blob',
     });
   }
