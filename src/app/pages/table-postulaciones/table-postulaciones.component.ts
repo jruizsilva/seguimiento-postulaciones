@@ -7,7 +7,7 @@ import {
   ViewChild,
   inject,
 } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
+import { MatAnchor, MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -47,6 +47,7 @@ import { MenuReportesComponent } from './menu-reportes/menu-reportes.component';
     DatePipe,
     TitleCasePipe,
     MenuReportesComponent,
+    MatAnchor,
   ],
   providers: [PostulacionesService],
 })
@@ -55,7 +56,6 @@ export class TablePostulacionesComponent implements OnInit {
     'puesto',
     'empresa',
     'plataforma',
-    'enlace',
     'fecha',
     'estado',
     'acciones',
